@@ -1,0 +1,7 @@
+pip-tools
+requests
+Django
+django-extensions
+openpyxl
+django-debug-toolbar
+djangorestframework
