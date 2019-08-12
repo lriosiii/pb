@@ -1,10 +1,13 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
-Accounting Home
-<!--<form  enctype="multipart/form-data" method="POST">-->
-    <!--{% csrf_token %}-->
-    <!--{{form.as_p}}-->
-    <!--<p><input type="submit" value="Submit"></p>-->
-<!--</form>-->
+<form  enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    NB Form
+    {{NBForm.as_p}}
+    <br>
+    Revenue Form
+    {{RevenueForm.as_p}}
+    <p><input type="submit" value="Submit"></p>
+</form>
 {% endblock content%}
