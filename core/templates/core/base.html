@@ -34,18 +34,19 @@
 <div class="col-md-3 left_col">
 <div class="left_col scroll-view">
 <div class="navbar nav_title" style="border: 0;">
-<a href="index.html" class="site_title"><span>John Doe</span></a>
+<!--<a href="index.html" class="site_title"><span>John Doe</span></a>-->
 </div>
 <div class="clearfix"></div>
 
 <div class="profile clearfix">
 <div class="profile_pic">
-<img src="{% static 'core/img/default_user.png' %}" alt="" class="img-circle profile_img">
+<!--<img src="{% static 'core/img/default_user.png' %}" alt="" class="img-circle profile_img">-->
 </div>
-<div class="profile_info">
-<span>Welcome,</span>
-<h2>John Doe</h2>
-</div>
+
+<!--<div class="profile_info">-->
+<!--<span>Welcome,</span>-->
+<!--<h2>John Doe</h2>-->
+<!--</div>-->
 </div>
 
 <br />
@@ -58,10 +59,7 @@
 
 
  <ul class="nav side-menu">
-    <li><a><i class="fa fa-calculator"></i> Finance<span class="fa fa-chevron-down"></span></a>
-     <ul class="nav child_menu">
-         <li><a href="{% url 'accounting:accountinghome' %}">Home</a></li>
-     </ul>
+    <li><a href="{% url 'accounting:accountinghome' %}"><i class="fa fa-calculator"></i> Accounting</a>
     </li>
 </ul>
 </div>
@@ -70,8 +68,8 @@
 
 
 <div class="sidebar-footer hidden-small">
- <div>&nbsp;&nbsp;&nbsp;&nbsp;Made with &hearts; <i class="fa fa-copyright"></i> {% now "Y" %}
-</div>
+ <!--<div>&nbsp;&nbsp;&nbsp;&nbsp; {% now "Y" %}-->
+<!--</div>-->
 </div>
 
 </div>
@@ -86,8 +84,9 @@
  <ul class="nav navbar-nav navbar-right">
   <li class="">
       <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-      <img src="{% static 'img/default_user.png' %}" alt="default_user">John Doe
-      <span class=" fa fa-angle-down"></span>
+      <img src="{% static 'img/default_user.png' %}" alt="default_user">
+      <!--John Doe-->
+      <!--<span class=" fa fa-angle-down"></span>-->
       </a>
   </li>
  </ul>
@@ -103,7 +102,7 @@
 </div>
 
 <footer>
-  <div class="pull-right">Made with &hearts; &copy;</div>
+  <div class="pull-right">{% now "Y" %}</div>
   <div class="clearfix"></div>
 </footer>
 
