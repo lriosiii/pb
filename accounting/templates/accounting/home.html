@@ -1,16 +1,23 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
-<div class="container-fluid">
-    <div class="row">
-        <form  enctype="multipart/form-data" method="POST">
-            {% csrf_token %}
+<div class="container-fluid"></div>
+
+ <div class="panel panel-default">
+  <h5>&nbsp;New Business and Reconciliation</h5>
+  <div class="row">
+  <form  enctype="multipart/form-data" method="POST">
+      {% csrf_token %}
+      {% for field in NBRevenueForm%}
+        <div class="col-sm-5" >
+            &nbsp;{{field.label_tag}} {{ field }}
             <br>
-            New Business and Reconciliation
-            <br>
-            {{NBRevenueForm.as_p}}
-            <p><input type="submit" value="Submit"></p>
-        </form>
+        </div>
+      {% endfor %}
+    <div class="col-sm-2">
+      <input type="submit" value="Submit">
     </div>
+  </form>
+  </div>
 </div>
 {% endblock content%}
