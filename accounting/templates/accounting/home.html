@@ -4,18 +4,37 @@
 <div class="container-fluid"></div>
 
  <div class="panel panel-default">
-  <h5>&nbsp;New Business and Reconciliation</h5>
+     <div class="text-center"><h5>&nbsp;New Business and Reconciliation</h5></div>
   <div class="row">
   <form  enctype="multipart/form-data" method="POST">
       {% csrf_token %}
       {% for field in NBRevenueForm%}
         <div class="col-sm-5" >
-            &nbsp;{{field.label_tag}} {{ field }}
+            &nbsp;&nbsp;{{field.label_tag}} {{ field }}
             <br>
         </div>
       {% endfor %}
     <div class="col-sm-2">
-      <input type="submit" value="Submit">
+      <input type="submit" name="newbiz" value="Submit">
+    </div>
+  </form>
+  </div>
+</div>
+<div class="container-fluid"></div>
+
+ <div class="panel panel-default">
+     <div class="text-center"><h5>&nbsp;Renewals and Reconciliation</h5></div>
+  <div class="row">
+  <form  enctype="multipart/form-data" method="POST">
+      {% csrf_token %}
+      {% for field in CompareRenewalsRevenueForm %}
+        <div class="col-sm-5" >
+            &nbsp;&nbsp;{{field.label_tag}} {{ field }}
+            <br>
+        </div>
+      {% endfor %}
+    <div class="col-sm-2">
+      <input type="submit" name="renewals" value="Submit">
     </div>
   </form>
   </div>
