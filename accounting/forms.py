@@ -10,3 +10,7 @@ class CompareRenewalsRevenueForm(forms.Form):
     renewals_file = forms.FileField(allow_empty_file=False, label="Renewals")
     reconciliation_file = forms.FileField(allow_empty_file=False, label="Reconciliation")
 
+
+class CompareIncentiveAndRevenueForm(forms.Form):
+    incentive_file = forms.FileField(allow_empty_file=False, label='Incentive')
+    reconciliation_file = forms.FileField(allow_empty_file=False, label='Reconciliation')
