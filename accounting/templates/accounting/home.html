@@ -41,4 +41,24 @@
       </div>
     </div>
 </div>
+
+<div class="container-fluid">
+     <div class="panel panel-default">
+         <div class="text-center"><h5>&nbsp;Govgistics and Reconciliation</h5></div>
+      <div class="row">
+      <form  enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          {% for field in CompareGovgisticsAndRevenueForm %}
+            <div class="col-sm-5" >
+                &nbsp;&nbsp;{{field.label_tag}} {{ field }}
+                <br>
+            </div>
+          {% endfor %}
+        <div class="col-sm-2">
+          <input type="submit" name="govgistics" value="Submit">
+        </div>
+      </form>
+      </div>
+    </div>
+</div>
 {% endblock content%}
