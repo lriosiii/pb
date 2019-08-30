@@ -12,5 +12,5 @@ class CompareRenewalsRevenueForm(forms.Form):
 
 
 class CompareGovgisticsAndRevenueForm(forms.Form):
-    incentive_file = forms.FileField(allow_empty_file=False, label='Incentive')
+    govgistics_file = forms.FileField(allow_empty_file=False, label='Govgistics')
     reconciliation_file = forms.FileField(allow_empty_file=False, label='Reconciliation')
