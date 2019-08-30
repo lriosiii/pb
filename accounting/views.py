@@ -36,7 +36,17 @@ class AccountingHome(TemplateView):
                     for cell in row:
                         cell.font = Font(color=RED)
         if request.POST.get('renewals'):
-            resp_wb = openpyxl.load_workbook(request.FILES['nenewals_file'])
+            resp_wb = openpyxl.load_workbook(request.FILES['renewals_file'])
+            sheet12 = resp_wb.sheetnames[11]
+            worksheet = resp_wb[sheet12]
+            data_rows = (row for row in worksheet if row[2].value)
+            next(data_rows)
+            for row in data_rows:
+                if str(row[2].value).lower() in rev_accounts:
+                    continue
+                else:
+                    for cell in row:
+                        cell.font = Font(color=RED)
 
 
         response = HttpResponse(content=save_virtual_workbook(resp_wb), content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
