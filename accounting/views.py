@@ -19,10 +19,12 @@ class AccountingHome(TemplateView):
     def post(self, request, *args, **kwargs):
         from openpyxl.styles import Font
         from openpyxl.styles.colors import RED
-
-        revenue_file_input = request.FILES['reconciliation_file']
-        revenue_wb = openpyxl.load_workbook(revenue_file_input, read_only=True, data_only=True)
-        rev_accounts = {str(row[5].value).lower() for row in revenue_wb.active.rows if row[5].value}
+        try:
+            revenue_file_input = request.FILES['reconciliation_file']
+            revenue_wb = openpyxl.load_workbook(revenue_file_input, read_only=True, data_only=True)
+            rev_accounts = {str(row[5].value).lower() for row in revenue_wb.active.rows if row[5].value}
+        except:
+            pass
 
         if request.POST.get('newbiz'):
             resp_wb = openpyxl.load_workbook(request.FILES['nb_file'])
