@@ -1,5 +1,5 @@
 from django.views.generic.base import TemplateView
-from .forms import CompareNbRevenueForm, CompareRenewalsRevenueForm, CompareGovgisticsAndRevenueForm
+from .forms import CompareNbRevenueForm, CompareRenewalsRevenueForm, CompareGovgisticsAndRevenueForm, CompareCBAndARForm
 import openpyxl
 from django.http import HttpResponse
 from openpyxl.writer.excel import save_virtual_workbook
@@ -14,9 +14,11 @@ class AccountingHome(TemplateView):
         context['NBRevenueForm'] = CompareNbRevenueForm
         context['CompareRenewalsRevenueForm'] = CompareRenewalsRevenueForm
         context['CompareGovgisticsAndRevenueForm'] = CompareGovgisticsAndRevenueForm
+        context['CompareCBAndARForm'] = CompareCBAndARForm
         return context
 
     def post(self, request, *args, **kwargs):
+        filename = 'myexport'
         from openpyxl.styles import Font
         from openpyxl.styles.colors import RED
         try:
@@ -64,7 +66,12 @@ class AccountingHome(TemplateView):
                     for cell in row[4:]:
                         cell.font = Font(color=RED)
 
+        if request.POST.get('cbar'):
+            filename = 'AGEING CB - PR {mm-dd-yy}'
+            cb_wb = openpyxl.load_workbook(request.FILES['CB_file'])
+            ar_wb = openpyxl.load_workbook(request.FILES['AR_file'])
+
         response = HttpResponse(content=save_virtual_workbook(resp_wb), content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-        response['Content-Disposition'] = 'attachment; filename=myexport.xlsx'
+        response['Content-Disposition'] = f'attachment; filename={filename}.xlsx'
         return response
 

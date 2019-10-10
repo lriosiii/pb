@@ -24,91 +24,75 @@
 <link href="https://colorlib.com/polygon/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
 <link href="https://colorlib.com/polygon/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 <link href="https://colorlib.com/polygon/build/css/custom.min.css" rel="stylesheet">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
 </head>
 <body class="nav-md footer_fixed">
-<div class="container body">
-<div class="main_container">
-<div class="col-md-3 left_col">
-<div class="left_col scroll-view">
-<div class="navbar nav_title" style="border: 0;">
-<!--<a href="index.html" class="site_title"><span>John Doe</span></a>-->
-</div>
-<div class="clearfix"></div>
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                <!--<a href="index.html" class="site_title"><span>John Doe</span></a>-->
+                </div>
+                <div class="clearfix"></div>
+                    <div class="profile clearfix">
+                        <div class="profile_pic">
+                        <!--<img src="{% static 'core/img/default_user.png' %}" alt="" class="img-circle profile_img">-->
+                        </div>
 
-<div class="profile clearfix">
-<div class="profile_pic">
-<!--<img src="{% static 'core/img/default_user.png' %}" alt="" class="img-circle profile_img">-->
-</div>
+                    <!--<div class="profile_info">-->
+                    <!--<span>Welcome,</span>-->
+                    <!--<h2>John Doe</h2>-->
+                    <!--</div>-->
+                    </div>
+                <br />
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <h3>Navigate</h3>
+                         <ul class="nav side-menu">
+                            <li><a href="{% url 'accounting:accountinghome' %}"><i class="fa fa-calculator"></i> Accounting</a></li>
+                         </ul>
+                    </div>
+                </div>
+                    <div class="sidebar-footer hidden-small">
+                     <div>&nbsp;&nbsp;&nbsp;&nbsp; {% now "Y" %}</div>
+                    </div>
+                </div>
+            </div>
 
-<!--<div class="profile_info">-->
-<!--<span>Welcome,</span>-->
-<!--<h2>John Doe</h2>-->
-<!--</div>-->
-</div>
-
-<br />
-
-<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-
-<div class="menu_section">
-
-<h3>Navigate</h3>
-
-
- <ul class="nav side-menu">
-    <li><a href="{% url 'accounting:accountinghome' %}"><i class="fa fa-calculator"></i> Accounting</a>
-    </li>
-</ul>
-</div>
-
-</div>
-
-
-<div class="sidebar-footer hidden-small">
- <!--<div>&nbsp;&nbsp;&nbsp;&nbsp; {% now "Y" %}-->
-<!--</div>-->
-</div>
-
-</div>
-</div>
-
-<div class="top_nav">
-<div class="nav_menu">
-<nav>
-<div class="nav toggle">
-<a id="menu_toggle"><i class="fa fa-bars"></i></a>
-</div>
- <ul class="nav navbar-nav navbar-right">
-  <li class="">
-      <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-      <img src="{% static 'img/default_user.png' %}" alt="default_user">
-      <!--John Doe-->
-      <!--<span class=" fa fa-angle-down"></span>-->
-      </a>
-  </li>
- </ul>
-</nav>
-</div>
-</div>
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav>
+                <div class="nav toggle"><a id="menu_toggle"><i class="fa fa-bars"></i></a></div>
+                 <ul class="nav navbar-nav navbar-right">
+                  <li class="">
+                      <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                      <img src="{% static 'img/default_user.png' %}" alt="default_user">
+                      <!--John Doe-->
+                      <!--<span class=" fa fa-angle-down"></span>-->
+                      </a>
+                  </li>
+                 </ul>
+                </nav>
+            </div>
+        </div>
 
 
-<div class="right_col" role="main">
-{% block content %}
+        <div class="right_col" role="main">
+            {% block content %}
 
-{% endblock content %}
-</div>
+            {% endblock content %}
+        </div>
 
-<footer>
-  <div class="pull-right">{% now "Y" %}</div>
-  <div class="clearfix"></div>
-</footer>
+<!--        <footer>-->
+<!--          <div class="pull-right">{% now "Y" %}</div>-->
+<!--          <div class="clearfix"></div>-->
+<!--        </footer>-->
 
 
-</div>
-</div>
+        </div>
+    </div>
 
 <script src="https://colorlib.com/polygon/vendors/jquery/dist/jquery.min.js"></script>
 <script src="https://colorlib.com/polygon/vendors/bootstrap/dist/js/bootstrap.min.js"></script>

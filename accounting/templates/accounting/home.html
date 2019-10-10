@@ -68,4 +68,26 @@
       </div>
     </div>
 </div>
+
+<div class="container-fluid">
+     <div class="panel panel-default">
+         <br>
+         <div class="text-center"><h4>&nbsp;CB and AR</h4></div>
+         <br>
+      <div class="row">
+      <form  enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          {% for field in CompareCBAndARForm %}
+            <div class="col-sm-5" >
+                &nbsp;&nbsp;{{field.label_tag}} {{ field }}
+                <br>
+            </div>
+          {% endfor %}
+        <div class="col-sm-2">
+          <input type="submit" name="cbar" value="Submit">
+        </div>
+      </form>
+      </div>
+    </div>
+</div>
 {% endblock content%}
