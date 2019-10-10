@@ -68,8 +68,10 @@ class AccountingHome(TemplateView):
 
         if request.POST.get('cbar'):
             filename = 'AGEING CB - PR {mm-dd-yy}'
-            cb_wb = openpyxl.load_workbook(request.FILES['CB_file'])
+            cb_wb = openpyxl.load_workbook(request.FILES['CB_file'], read_only=True)
             ar_wb = openpyxl.load_workbook(request.FILES['AR_file'])
+            cb_worksheet = cb_wb.active
+            ar_worksheet = ar_wb.active
 
         response = HttpResponse(content=save_virtual_workbook(resp_wb), content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
         response['Content-Disposition'] = f'attachment; filename={filename}.xlsx'
