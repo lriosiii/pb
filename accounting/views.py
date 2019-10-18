@@ -72,11 +72,12 @@ class AccountingHome(TemplateView):
             resp_wb = openpyxl.load_workbook(request.FILES['AR_file'])
             cb_worksheet = cb_wb.active
             ws = resp_wb.active
-            cb_orngyellow_invoices, cb_orngfill, cb_bluetext = list(), list(), list()
+            cb_all, cb_orngyellow_invoices, cb_orngfill, cb_bluetext = list(), list(), list(), list()
             cb_filteredrows = (row for row in cb_worksheet.iter_rows(min_row=3) if row[0].value is not None and int(row[0].value) >= 45)
             for row in cb_filteredrows:
+                cb_all.append(row[5].value)         # yellow     # orange
                 if row[0].fill.start_color.index in ('FFFFFF00', 'FFFFC000'):
-                    cb_orngyellow_invoices.append(row[5].value)
+                    cb_orngyellow_invoices.append(row[5].value)         # blue
                 elif row[0].value >= 65 and row[0].font.color.value in ('FF00B0F0'):
                     cb_orngfill.append(row[5].value)
                 elif row[0].value < 65 and row[0].font.color.value in ('FF00B0F0'):
@@ -88,13 +89,15 @@ class AccountingHome(TemplateView):
                 if row[5].value in cb_orngyellow_invoices:
                     for cell in row:
                         cell.fill = PatternFill("solid", fgColor="FFFFFF00")
-                if row[5].value in cb_orngfill:
-                    # to orange
+                elif row[5].value in cb_orngfill:
                     for cell in row:
                         cell.fill = PatternFill("solid", fgColor="FFFFC000")
-                if row[5].value in cb_bluetext:
+                elif row[5].value in cb_bluetext:
                     for cell in row:
                         cell.font = Font(color=BLUE)
+                elif row[0].value >= 45 and row[5].value not in cb_all:
+                    for cell in row:
+                        cell.fill = PatternFill("solid", fgColor="FFFFC000")
 
         response = HttpResponse(content=save_virtual_workbook(resp_wb), content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
         response['Content-Disposition'] = f'attachment; filename={filename}_{date}.xlsx'
