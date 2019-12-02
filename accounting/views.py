@@ -78,9 +78,9 @@ class AccountingHome(TemplateView):
                 cb_all.append(row[5].value)         # yellow     # orange
                 if row[0].fill.start_color.index in ('FFFFFF00', 'FFFFC000'):
                     cb_orngyellow_invoices.append(row[5].value)         # blue
-                elif row[0].value >= 65 and row[0].font.color.value in ('FF00B0F0'):
+                elif row[0].value >= 65 and getattr(row[0].font.color, 'value', 'default') in ('FF00B0F0'):
                     cb_orngfill.append(row[5].value)
-                elif row[0].value < 65 and row[0].font.color.value in ('FF00B0F0'):
+                elif row[0].value < 65 and getattr(row[0].font.color, 'value', 'default') in ('FF00B0F0'):
                     cb_bluetext.append(row[5].value)
             ws_populatedrows = (row for row in ws.iter_rows(min_row=3) if row[0].value is not None)
             for row in ws_populatedrows:
