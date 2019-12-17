@@ -3,91 +3,95 @@
 {% block content %}
 <div class="clearfix"></div>
 <div class="container-fluid">
-     <div class="panel panel-default">
+     <div class="panel panel-default border rounded shadow-sm p-3 mb-5 bg-light">
          <br>
-         <div class="text-center"><h4>&nbsp;New Business and Reconciliation</h4></div>
+         <div class="text-center"><h4>New Business and Reconciliation</h4></div>
          <br>
-      <div class="row">
-      <form  enctype="multipart/form-data" method="POST">
-          {% csrf_token %}
-          {% for field in NBRevenueForm%}
-            <div class="col-sm-5" >
-                &nbsp;&nbsp;{{field.label_tag}} {{ field }}
-                <br>
+
+         <form enctype="multipart/form-data" method="POST">
+           {% csrf_token %}
+          <div class="row">
+              {% for field in NBRevenueForm%}
+                <div class="col border rounded shadow-sm p-3 mb-5 bg-light text-center" >
+                    &nbsp;&nbsp;{{field.label_tag}} {{ field }}
+                    <br>
+                </div>
+              {% endfor %}
+            <div class="col border rounded shadow-sm p-3 mb-5 bg-light text-center">
+              <input type="submit" name="newbiz" value="Submit">
             </div>
-          {% endfor %}
-        <div class="col-sm-2">
-          <input type="submit" name="newbiz" value="Submit">
-        </div>
-      </form>
-      </div>
+          </div>
+        </form>
     </div>
 </div>
 
-
 <div class="container-fluid">
-     <div class="panel panel-default">
+     <div class="panel panel-default border rounded shadow-sm p-3 mb-5 bg-light">
          <br>
          <div class="text-center"><h4>&nbsp;Renewals and Reconciliation</h4></div>
          <br>
-      <div class="row">
-      <form  enctype="multipart/form-data" method="POST">
-          {% csrf_token %}
-          {% for field in CompareRenewalsRevenueForm %}
-            <div class="col-sm-5" >
-                &nbsp;&nbsp;{{field.label_tag}} {{ field }}
-                <br>
+
+         <form enctype="multipart/form-data" method="POST">
+           {% csrf_token %}
+          <div class="row">
+              {% for field in CompareRenewalsRevenueForm %}
+                <div class="col border rounded shadow-sm p-3 mb-5 bg-light text-center" >
+                    &nbsp;&nbsp;{{field.label_tag}} {{ field }}
+                    <br>
+                </div>
+              {% endfor %}
+            <div class="col border rounded shadow-sm p-3 mb-5 bg-light text-center">
+              <input type="submit" name="renewals" value="Submit">
             </div>
-          {% endfor %}
-        <div class="col-sm-2">
-          <input type="submit" name="renewals" value="Submit">
-        </div>
-      </form>
-      </div>
+          </div>
+        </form>
     </div>
 </div>
 
 <div class="container-fluid">
-     <div class="panel panel-default">
+     <div class="panel panel-default border rounded shadow-sm p-3 mb-5 bg-light">
          <br>
          <div class="text-center"><h4>&nbsp;Govgistics and Reconciliation</h4></div>
          <br>
-      <div class="row">
-      <form  enctype="multipart/form-data" method="POST">
-          {% csrf_token %}
-          {% for field in CompareGovgisticsAndRevenueForm %}
-            <div class="col-sm-5" >
-                &nbsp;&nbsp;{{field.label_tag}} {{ field }}
-                <br>
+
+         <form enctype="multipart/form-data" method="POST">
+           {% csrf_token %}
+          <div class="row">
+              {% for field in CompareGovgisticsAndRevenueForm %}
+                <div class="col border rounded shadow-sm p-3 mb-5 bg-light text-center" >
+                    &nbsp;&nbsp;{{field.label_tag}} {{ field }}
+                    <br>
+                </div>
+              {% endfor %}
+            <div class="col border rounded shadow-sm p-3 mb-5 bg-light text-center">
+              <input type="submit" name="govgistics" value="Submit">
             </div>
-          {% endfor %}
-        <div class="col-sm-2">
-          <input type="submit" name="govgistics" value="Submit">
-        </div>
-      </form>
-      </div>
+          </div>
+        </form>
     </div>
 </div>
 
 <div class="container-fluid">
-     <div class="panel panel-default">
+     <div class="panel panel-default border rounded shadow-sm p-3 mb-5 bg-light">
          <br>
          <div class="text-center"><h4>&nbsp;CB and AR</h4></div>
          <br>
-      <div class="row">
-      <form  enctype="multipart/form-data" method="POST">
-          {% csrf_token %}
-          {% for field in CompareCBAndARForm %}
-            <div class="col-sm-5" >
-                &nbsp;&nbsp;{{field.label_tag}} {{ field }}
-                <br>
+
+         <form enctype="multipart/form-data" method="POST">
+           {% csrf_token %}
+          <div class="row">
+              {% for field in CompareCBAndARForm %}
+                <div class="col border rounded shadow-sm p-3 mb-5 bg-light text-center" >
+                    &nbsp;&nbsp;{{field.label_tag}} {{ field }}
+                    <br>
+                </div>
+              {% endfor %}
+            <div class="col border rounded shadow-sm p-3 mb-5 bg-light text-center">
+              <input type="submit" name="cbar" value="Submit">
             </div>
-          {% endfor %}
-        <div class="col-sm-2">
-          <input type="submit" name="cbar" value="Submit">
-        </div>
-      </form>
-      </div>
+          </div>
+        </form>
     </div>
 </div>
+
 {% endblock content%}
